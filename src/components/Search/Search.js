@@ -1,6 +1,6 @@
 import {useState} from "react";
 import axios from 'axios';
-import Track from '../Track/Track';
+import TrackLoop from '../Track/TrackLoop';
 
 
 const Search = ({accessToken}) => {
@@ -26,7 +26,7 @@ const Search = ({accessToken}) => {
             <input type="text" onChange={handleOnChange} placeholder="Type to Search"/>
             <button onClick={()=>{getTracks(accessToken)}} > Search</button>
             {data !== undefined && (
-                <Track data={data}/>
+                <TrackLoop tracks={data}/>
             )
 
             }

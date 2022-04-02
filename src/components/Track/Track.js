@@ -1,29 +1,20 @@
-import Image from "./Image/Image";
-import Text from "./Text/Text";
-import SelectText from "./Button/Button";
 
-const Track = ({image, name, artists, uri}) => (
+
+const Track = ({item, onSelectedTrack}) =>{ 
+    const {album, artists, name: songName, isSelected, uri} = item;
+    
+    return (
         <div className="container">
         <div className="card">
-        <Image url={image}/>
-        <Text name={name} artists={artists}/>
-        <SelectText idn={uri} />
+        <img src={album.images[0].url} alt=""/>
+        <h3>{songName}</h3>
+        <h2>{artists.map(artist => artist.name).join(',')}</h2>
+        <button onClick={()=>{onSelectedTrack(uri)}}> {isSelected? 'Deselect' : 'Selected'}</button>
         </div>
         </div>
 )
-
-const TrackLoop = ({data}) => {
-    return data.map((a) => (
-        <Track
-        key={a.id}
-        image={a.album.images[1].url}
-        name={a.album.name}
-        artists={a.album.artists[0].name}
-        uri = {a.album.external_urls.uri}
-        />
-    ))
 }
 
-export default TrackLoop;
+export default Track;
 
 
