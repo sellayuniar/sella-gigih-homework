@@ -1,3 +1,4 @@
+import './track.css';
 import Track from "./Track";
 import { useState, useEffect} from "react";
 

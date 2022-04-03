@@ -1,0 +1,50 @@
+
+.card {
+    margin: 10px 20px 20px -80px;
+    width: 300px;
+    display: flex;
+    border: 3px solid black;
+    border-radius: 10px;
+    flex-direction: column;
+    
+  }
+  
+  .card h2 {
+    font-size: 14px;
+  }
+  
+  .card button {
+    margin: 10px 25px;
+    padding: 10px 100px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    background: transparent;
+  }
+
+  .card button:hover {
+    background: Black;
+    color: white;
+    transition: 0.5s;
+  }
+  
+    .card input {
+    margin: 10px 15px;
+    padding: 8px 100px 8px 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    background: transparent;
+  }
+  
+  .card h2, h3{
+    margin-left: 10px;
+  }
+  
+  .card img {
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  

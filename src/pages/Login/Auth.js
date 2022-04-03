@@ -1,7 +1,8 @@
+import './login.css';
 import { useState, useEffect } from "react";
 import Login from "./Login";
 import queryString from 'query-string';
-import Search from "../Search/Search";
+import Home from "../../pages/Home/Home";
 
 const Auth = () => {
     const [accessToken, setAccessToken] = useState("");
@@ -12,7 +13,7 @@ const Auth = () => {
 
     if (accessToken !== undefined) {
         return (
-                <Search accessToken={accessToken} />
+                <Home accessToken={accessToken} />
         )
         
     } else {

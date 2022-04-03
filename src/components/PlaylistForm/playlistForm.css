@@ -1,0 +1,49 @@
+.myform {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: 50px 0px;
+}
+
+.myform textarea {
+    margin: 10px 15px;
+    width: 320px;
+    height: 100px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    background: transparent;
+  }
+
+  .myform label {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .myform input {
+    margin: 10px 15px;
+    padding: 8px 100px 8px 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    background: transparent;
+  }
+
+  .myform button {
+    margin: 10px 20px;
+    width: 320px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    background: transparent;
+  }
+
+  .myform button:hover {
+    background: Black;
+    color: white;
+    transition: 0.5s;
+  }

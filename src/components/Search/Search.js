@@ -1,3 +1,4 @@
+import "./search.css";
 import {useState} from "react";
 import axios from 'axios';
 import TrackLoop from '../Track/TrackLoop';
@@ -22,14 +23,17 @@ const Search = ({accessToken}) => {
 
     
     return (
-        <div>
-            <input type="text" onChange={handleOnChange} placeholder="Type to Search"/>
+        <div className="search-section">
+            <h1>Search Song</h1>
+            <input className="search" type="text" onChange={handleOnChange} placeholder="Type to Search"/>
             <button onClick={()=>{getTracks(accessToken)}} > Search</button>
+            <div class="track-section">
             {data !== undefined && (
                 <TrackLoop tracks={data}/>
             )
 
             }
+             </div>
         </div>
     )
 };
