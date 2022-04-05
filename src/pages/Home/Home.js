@@ -80,7 +80,7 @@ const Home = ({accessToken}) => {
 
     const [addPlaylist, setAddPlaylist] = useState ({
         name: '',
-        description: ''
+        description: '',
     });
 
     const [playlistId, setPlaylistId] = useState(url);
@@ -89,7 +89,7 @@ const Home = ({accessToken}) => {
         name: addPlaylist.name,
         description: addPlaylist.description,
         collaborative: false,
-        public: false
+        public: false,
     }
 
     const header = {
@@ -100,6 +100,7 @@ const Home = ({accessToken}) => {
         const {name, value} = e.target;
         setAddPlaylist({...addPlaylist, [name]: value})
     }
+
     const handleAddPlaylistSubmit = async (e) => {
         e.preventDefault();
         console.log(addPlaylist);
@@ -133,7 +134,7 @@ const Home = ({accessToken}) => {
     return (
         <div className="container">
             <Profile username={user.displayName} id_user={user.user_id} getUserProfile={getUserProfile}/>
-            <PlaylistForm  user_id={user.user_id} playlistId={playlistId} handleAddPlayListChange={handleAddPlayListChange} handleAddPlaylistSubmit={handleAddPlaylistSubmit}/>
+            <PlaylistForm  user_id={user.user_id} playlistId={playlistId} handleAddPlayListChange={handleAddPlayListChange} handleAddPlaylistSubmit={handleAddPlaylistSubmit} addPlaylist={addPlaylist}/>
             <Search handleOnChange={handleOnChange} getTracks={getTracks} accessToken={accessToken} data={trackData} TrackLoop={renderTracks}/>
             
         </div>

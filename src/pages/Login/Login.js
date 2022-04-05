@@ -2,7 +2,7 @@
 const Login = () =>{
     var client_id = '505526c8a9ad4b49aac34d2f8ee344ae';
     var redirect_uri = 'http://localhost:3000/';
-    var scope = 'user-modify-private';
+    var scope = 'playlist-modify-private playlist-modify-public';
 
     var url = 'https://accounts.spotify.com/authorize';
     url += '?response_type=token';

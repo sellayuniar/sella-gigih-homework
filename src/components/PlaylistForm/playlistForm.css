@@ -47,3 +47,8 @@
     color: white;
     transition: 0.5s;
   }
+
+  .myform textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+  }
