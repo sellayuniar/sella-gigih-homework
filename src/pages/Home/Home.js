@@ -6,10 +6,11 @@ import Track from '../../components/Track/Track';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { url } from '../Login/Login';
+import { useSelector } from 'react-redux';
 
-const Home = ({accessToken}) => {
+const Home = () => {
 
-    //search
+    const accessToken = useSelector(state=> state.access_token.value);
     const [trackData, setTrackData] = useState([]);
     const [query, setQuery] = useState("");
     const [selectedTracks, setSelectedTracks] = useState([]);

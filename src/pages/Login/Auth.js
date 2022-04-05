@@ -1,22 +1,27 @@
 import './login.css';
-import { useState, useEffect } from "react";
+import {  useEffect } from "react";
 import Login from "./Login";
 import queryString from 'query-string';
 import Home from "../../pages/Home/Home";
+import {useSelector, useDispatch} from "react-redux";
+import {dataAccessToken} from '../../redux/accessToken-action';
+
 
 const Auth = () => {
-    const [accessToken, setAccessToken] = useState("");
+    const accessToken = useSelector(state => state.dataAccessToken.value);
+    const dispatch = useDispatch();
+
     useEffect(()=>{
         const parsed = queryString.parse(window.location.hash);
-        setAccessToken(parsed.access_token);
-    }, []);
+        dispatch(dataAccessToken(parsed.access_token));
+    }, [accessToken, dispatch]);
 
    
 
 
     if (accessToken !== undefined) {
         return (
-                <Home accessToken={accessToken}  />
+                <Home/>
         )
         
     } else {
