@@ -9,11 +9,14 @@ const Auth = () => {
     useEffect(()=>{
         const parsed = queryString.parse(window.location.hash);
         setAccessToken(parsed.access_token);
-    }, [])
+    }, []);
+
+   
+
 
     if (accessToken !== undefined) {
         return (
-                <Home accessToken={accessToken} />
+                <Home accessToken={accessToken}  />
         )
         
     } else {

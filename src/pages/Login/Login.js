@@ -1,3 +1,4 @@
+
 const Login = () =>{
     var client_id = '505526c8a9ad4b49aac34d2f8ee344ae';
     var redirect_uri = 'http://localhost:3000/';
@@ -18,3 +19,4 @@ const Login = () =>{
 }
 
 export default Login;
+export var url;

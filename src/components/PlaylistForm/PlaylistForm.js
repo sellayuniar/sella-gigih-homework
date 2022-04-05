@@ -1,16 +1,21 @@
+
 import './playlistForm.css';
-const PlaylistForm = () => {
+
+
+const PlaylistForm = ({accessToken, handleAddPlaylistSubmit}) => {
+
+    
     return (
         <div className="form-create-playlist">
-        <form className="myform">
+        <form className="myform" onSubmit={handleAddPlaylistSubmit}>
             <h1>Create Playlist</h1>
-            <div class="form-item">
-            <label>Title</label>
+            <div className="form-item">
+            <label htmlfor="title">Title</label>
             <br />
             <input type="text" />
             </div>
 
-            <div class="form-item">
+            <div className="form-item">
             <label>Description</label>
             <br />
             <textarea></textarea>

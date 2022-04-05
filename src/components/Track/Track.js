@@ -1,4 +1,4 @@
-
+import './track.css';
 const Track = ({item, onSelectTrack}) =>{ 
     const {album, artists, name: songName, isSelected, uri} = item;
     
