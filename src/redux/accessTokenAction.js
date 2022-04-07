@@ -6,4 +6,4 @@ const dataAccessToken = (parsedAccessToken) => {
     }
 }
 
-export {dataAccessToken};
+export default dataAccessToken;
