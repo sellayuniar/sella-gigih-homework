@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 
 const Home = () => {
 
-    const accessToken = useSelector(state=> state.dataAccessToken.value);
+    const accessToken = useSelector((state) => state.accessToken.value);
     const [trackData, setTrackData] = useState([]);
     const [query, setQuery] = useState("");
     const [selectedTracks, setSelectedTracks] = useState([]);

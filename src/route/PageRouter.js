@@ -2,23 +2,21 @@ import {
     BrowserRouter as Router, Switch, Route, Redirect
 } from "react-router-dom";
 import Home from "../pages/Home/Home";
-import Login from "../pages/Login/Login";
 import { useSelector } from 'react-redux';
+import Auth from "../pages/Login/Auth";
 
 const PageRouter = () => {
-    const accessToken = useSelector(state => state.dataAccessToken.value);
+    const accessToken = useSelector((state) => state.accessToken.value);
     return (
         <Router>
             <Switch>
+                <Route path="/" component={Auth} exact />
                 <Route path="/create-playlist">
                     {accessToken !== undefined ? (
                         <Home />
                     ) : (
                         <Redirect to="/" />
                     )}
-                </Route>
-                <Route path="/">
-                    <Login />
                 </Route>
             </Switch>
         </Router>

@@ -3,7 +3,7 @@ const initialState = {value: ""};
 const accessTokenReducer = (state = initialState, action) => {
     switch (action.type) {
         case "dataAccessToken":
-            return { value: action.playload};
+            return { ...state, value: action.payload};
         default:
             return state;
     }
