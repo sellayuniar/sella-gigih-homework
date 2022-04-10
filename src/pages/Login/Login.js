@@ -1,4 +1,4 @@
-
+import "./login.css";
 
 const Login = () =>{
     var client_id = process.env.REACT_APP_SPOTIFY_KEY;
@@ -12,7 +12,7 @@ const Login = () =>{
     url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
 
     return (
-        <div>
+        <div className="btn-login">
             <a href={url}><button>Log  in</button></a>
         </div>
     )
