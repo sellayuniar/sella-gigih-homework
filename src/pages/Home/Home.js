@@ -1,4 +1,4 @@
-import './home.css';
+import styles from './home.module.css';
 import Search from "../../components/Search/Search";
 import Profile from "../../components/Profile/Profile";
 import PlaylistForm from '../../components/PlaylistForm/PlaylistForm';
@@ -51,7 +51,7 @@ const Home = () => {
 
     const renderTracks = () => {
         return (
-            <div className="container">
+            <div className={styles.trackSection}>
                 {mergedTracks.map((card) => {
                     const {uri} = card;
                     return (
@@ -133,7 +133,7 @@ const Home = () => {
     }
 
     return (
-        <div className="container">
+        <div className={styles.container}>
             <Profile username={user.displayName} id_user={user.user_id} getUserProfile={getUserProfile}/>
             <PlaylistForm  user_id={user.user_id} playlistId={playlistId} handleAddPlayListChange={handleAddPlayListChange} handleAddPlaylistSubmit={handleAddPlaylistSubmit} addPlaylist={addPlaylist}/>
             <Search handleOnChange={handleOnChange} getTracks={getTracks} accessToken={accessToken} data={trackData} TrackLoop={renderTracks}/>

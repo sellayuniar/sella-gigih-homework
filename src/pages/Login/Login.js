@@ -1,4 +1,4 @@
-import "./login.css";
+import styles from "./login.module.css";
 
 const Login = () =>{
     var client_id = process.env.REACT_APP_SPOTIFY_KEY;
@@ -12,8 +12,9 @@ const Login = () =>{
     url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
 
     return (
-        <div className="btn-login">
-            <a href={url}><button>Log  in</button></a>
+        <div className={styles.btnLogin}>
+            <h1>Login To Your Spotify Account</h1>
+            <a href={url}><button>Login</button></a>
         </div>
     )
    

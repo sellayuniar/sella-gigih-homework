@@ -1,4 +1,4 @@
-import './playlistForm.css';
+import styles from './playlistForm.module.css';
 
 const PlaylistForm = (
     {handleAddPlaylistSubmit, handleAddPlayListChange, addPlaylist}
@@ -6,7 +6,7 @@ const PlaylistForm = (
 
     return (
         <div className="form-create-playlist">
-            <form className="myform" onSubmit={handleAddPlaylistSubmit}>
+            <form className={styles.myform} onSubmit={handleAddPlaylistSubmit}>
                 <h1>Create Playlist</h1>
                 <div className="form-item">
                     <label htmlFor="name">Title</label>

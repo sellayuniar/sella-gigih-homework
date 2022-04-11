@@ -1,0 +1,28 @@
+
+.btnLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1370px;
+  height: 650px;
+  background-color: #181818;
+
+}
+.btnLogin
+    button {
+      padding: 20px 100px;
+      border: 2px solid #1DB954;;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 22px;
+      background: #1DB954;
+      color: #FFF;
+      cursor: pointer;
+  }
+
+  .btnLogin h1 {
+    padding-bottom: 50px;
+    color: #FFF;
+    margin: 0;
+  }

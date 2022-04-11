@@ -1,0 +1,9 @@
+.container {
+    padding-left: 100px;
+    background-color: #181818;
+}
+.trackSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+  }
