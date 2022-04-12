@@ -13,6 +13,7 @@
   }
   
   .card button {
+    margin-top: 50px;
     padding: 10px 50px;
     border: 2px solid #1DB954;;
     border-radius: 20px;
