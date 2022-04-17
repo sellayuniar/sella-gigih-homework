@@ -1,6 +1,8 @@
 import styles from './track.module.css';
-const Track = ({item, onSelectTrack}) =>{ 
-    const {album, artists, name: songName, isSelected, uri} = item;
+import React from 'react';
+
+const Track: React.FC<{item: {}, onSelectTrack: string[]}> = ({item, onSelectTrack}) =>{ 
+    const {album, artists, name: songName, isSelected, uri}: React.FC <{album: string, }>= item;
     
     return (
         
@@ -12,6 +14,7 @@ const Track = ({item, onSelectTrack}) =>{
         <button onClick={()=>{onSelectTrack(uri)}}> {isSelected? 'Deselect' : 'Selected'}</button>
         </div>
         </div>
+        
 
 )
 }

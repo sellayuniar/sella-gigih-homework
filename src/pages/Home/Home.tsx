@@ -8,16 +8,19 @@ import axios from 'axios';
 import { url } from '../Login/Login';
 import { useSelector } from 'react-redux';
 
+
+
+
 const Home = () => {
 
-    const accessToken = useSelector((state) => state.accessToken.value);
+    const accessToken: string = useSelector((state) => state.accessToken.value);
     const [trackData, setTrackData] = useState([]);
     const [query, setQuery] = useState("");
     const [selectedTracks, setSelectedTracks] = useState([]);
     const [mergedTracks, setMergedTracks] = useState([]);
 
     //get track from search
-    const getTracks = async (accessToken) => {
+    const getTracks = async (accessToken: string) => {
         const data = await axios 
         .get(`https://api.spotify.com/v1/search?q=${query}&type=track&access_token=${accessToken}`)
         .then((response)=> response)
@@ -26,7 +29,7 @@ const Home = () => {
         console.log(data);
     }
 
-    const handleOnChange = (e) => {
+    const handleOnChange = (e: string) => {
         setQuery(e.target.value);
     }
 
