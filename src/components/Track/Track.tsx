@@ -1,8 +1,18 @@
-import styles from './track.module.css';
-import React from 'react';
+import styles from  './track.module.css';
 
-const Track: React.FC<{item: {}, onSelectTrack: string[]}> = ({item, onSelectTrack}) =>{ 
-    const {album, artists, name: songName, isSelected, uri}: React.FC <{album: string, }>= item;
+export type TrackData = {
+    album: string;
+    artists: Array<{
+        name: string,
+        id: string
+    }>;
+    name: string;
+    isSelected: boolean;
+    onSelectTrack: (uri: string) => void;
+    uri: string;
+}
+
+const Track= ({album, artists, name: songName, isSelected, uri, onSelectTrack}: TrackData) =>{ 
     
     return (
         

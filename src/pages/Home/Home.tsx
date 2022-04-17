@@ -9,8 +9,6 @@ import { url } from '../Login/Login';
 import { useSelector } from 'react-redux';
 
 
-
-
 const Home = () => {
 
     const accessToken: string = useSelector((state) => state.accessToken.value);
@@ -34,7 +32,7 @@ const Home = () => {
     }
 
     // Selected track
-    const handleSelectTrack = (uri) => {
+    const handleSelectTrack = (uri: string) => {
         const alreadySelected = selectedTracks.find(selectedTrack => selectedTrack === uri);
         if (alreadySelected) {
             setSelectedTracks(selectedTracks.filter(selectedTrack => selectedTrack !== uri))
