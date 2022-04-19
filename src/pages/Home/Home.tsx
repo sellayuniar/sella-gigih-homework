@@ -3,35 +3,44 @@ import Search from "../../components/Search/Search";
 import Profile from "../../components/Profile/Profile";
 import PlaylistForm from '../../components/PlaylistForm/PlaylistForm';
 import Track from '../../components/Track/Track';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { url } from '../Login/Login';
-import { useSelector } from 'react-redux';
+import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
+import { useAppSelector, useAppDispatch } from '../../redux/hooks';
+import { setMergedTracks } from '../../redux/tracksSlice';
+import { fetchTracksData } from '../../libs/fetchTracksData';
+import { addPlaylist } from '../../libs/addPlaylist';
+import { addItemToPlaylist } from '../../libs/addItemToPlaylist';
+import { Tracks as TracksData} from '../../spotify'
+import { RootState } from '../../store';
+
 
 
 const Home = () => {
 
-    const accessToken: string = useSelector((state) => state.accessToken.value);
-    const [trackData, setTrackData] = useState([]);
+    const accessToken = useAppSelector((state: RootState) => state.accessToken.value);
+    const userID = useAppSelector((state: RootState) => state.user.userID);
+    const [tracksData, setTracksData] = useState<TracksData[]>([]);
     const [query, setQuery] = useState("");
-    const [selectedTracks, setSelectedTracks] = useState([]);
-    const [mergedTracks, setMergedTracks] = useState([]);
-
-    //get track from search
-    const getTracks = async (accessToken: string) => {
-        const data = await axios 
-        .get(`https://api.spotify.com/v1/search?q=${query}&type=track&access_token=${accessToken}`)
-        .then((response)=> response)
-        .catch((error) => error)
-        setTrackData(data.data.tracks.items);
-        console.log(data);
+    const [selectedTracks, setSelectedTracks] = useState<string[]>([]);
+    const mergedTracks = useAppSelector((state: RootState) => state.tracks.mergedTracks);
+    const [playlistData, setPlaylistData] = useState ({
+        name: '',
+        description: '',
+    });
+    
+    const itemParams = {
+        uris: selectedTracks
     }
 
-    const handleOnChange = (e: string) => {
-        setQuery(e.target.value);
-    }
+    const dispatch = useAppDispatch();
+  
+    useEffect(()=>{
+        const mergedTracksWithSelectedTracks = tracksData.map((track)=>({
+            ...track,
+            isSelected: !!selectedTracks.find((selectedTrack) => selectedTrack === track.uri)
+        }));
+        dispatch(setMergedTracks(mergedTracksWithSelectedTracks));
+    }, [selectedTracks, tracksData, dispatch]);
 
-    // Selected track
     const handleSelectTrack = (uri: string) => {
         const alreadySelected = selectedTracks.find(selectedTrack => selectedTrack === uri);
         if (alreadySelected) {
@@ -42,103 +51,56 @@ const Home = () => {
         console.log(selectedTracks);
     };
 
-    useEffect(()=>{
-        const mergedTracksWithSelectedTracks = trackData.map((track)=>({
-            ...track,
-            isSelected: !!selectedTracks.find((selectedTrack) => selectedTrack === track.uri)
-        }));
-        setMergedTracks(mergedTracksWithSelectedTracks);
-    }, [selectedTracks, trackData]);
+    const getTracks = () => {
+        accessToken !== undefined && fetchTracksData(query, accessToken)
+            .then(res => {
+                setTracksData(res);
+            });
+    }
 
-    const renderTracks = () => {
-        return (
-            <div className={styles.trackSection}>
-                {mergedTracks.map((card) => {
-                    const {uri} = card;
-                    return (
-                        <Track onSelectTrack={handleSelectTrack} key={uri} item={card} />
-                    )
-                })}
-                
-            </div>
-        );
-    };
-       
-    
-    //setUser
-    const [user, setUser] = useState({
-        displayName: '',
-        user_id: undefined
-    })
-
-    const getUserProfile = async() => {
-        const data = await axios
-        .get(`https://api.spotify.com/v1/me?access_token=${accessToken}`)
-        setUser({...user, displayName: data.data.display_name, user_id: data.data.id});
-        console.log(data);
-    };
+    const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setQuery(e.target.value);
+    }
 
     //add playlist and item
 
-    const [addPlaylist, setAddPlaylist] = useState ({
-        name: '',
-        description: '',
-    });
-
-    const [playlistId, setPlaylistId] = useState(url);
-
-    const bodyParams = {
-        name: addPlaylist.name,
-        description: addPlaylist.description,
-        collaborative: false,
-        public: false,
+    const handleAddPlayListChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setPlaylistData({ ...playlistData, [name]: value });
     }
 
-    const header = {
-        Authorization: `Bearer ${accessToken}`
-    }
-
-    const handleAddPlayListChange = (e) => {
-        const {name, value} = e.target;
-        setAddPlaylist({...addPlaylist, [name]: value})
-    }
-
-    const handleAddPlaylistSubmit = async (e) => {
+    const handleAddPlaylistSubmit = (e: FormEvent) => {
         e.preventDefault();
-        console.log(addPlaylist);
-        await axios
-        .post(`https://api.spotify.com/v1/users/${user.user_id}/playlists`, bodyParams,
-            {
-                headers: header
-            }
-        )
-        .then((response) => (
-            handleAddPlaylistItem(response.data.id)))
-        .catch((error) => error)
+        accessToken !== undefined && addPlaylist(accessToken, userID, playlistData)
+            .then(res => {
+                console.log("Playlist created: ", res);
+                selectedTracks.length > 0 && (handleAddPlaylistItem(res.id));
+            })
     }
-
-    const itemParams = {
-        uris: selectedTracks
-       }
-
-    const handleAddPlaylistItem = async (id) => {
-        setPlaylistId(id);
-        const data = await axios 
-            .post(
-                `https://api.spotify.com/v1/playlists/${id}/tracks`, itemParams, {
-                    headers: header
-                }
-            )
-            .catch((error) => error);
-            console.log(data);
+    
+    const handleAddPlaylistItem = (playlist_id: string) => {
+        accessToken !== undefined && addItemToPlaylist(accessToken, playlist_id, itemParams)
+            .then(res => {
+                console.log("Added items to playlist: ", res);
+            });
     }
+    
 
     return (
         <div className={styles.container}>
-            <Profile username={user.displayName} id_user={user.user_id} getUserProfile={getUserProfile}/>
-            <PlaylistForm  user_id={user.user_id} playlistId={playlistId} handleAddPlayListChange={handleAddPlayListChange} handleAddPlaylistSubmit={handleAddPlaylistSubmit} addPlaylist={addPlaylist}/>
-            <Search handleOnChange={handleOnChange} getTracks={getTracks} accessToken={accessToken} data={trackData} TrackLoop={renderTracks}/>
+            <Profile/>
+            <PlaylistForm
+                handleAddPlayListChange={handleAddPlayListChange}
+                handleAddPlaylistSubmit={handleAddPlaylistSubmit}
+                addPlaylist={addPlaylist}/>
+            <Search
+                handleOnChange={handleOnChange}
+                getTracks={getTracks}
+                />
+            <br/>
+            <Track mergedTracks={mergedTracks} handleSelectTrack={handleSelectTrack} />
             
+
         </div>
     )
 

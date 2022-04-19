@@ -1,20 +1,16 @@
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-const Search = ({accessToken, handleOnChange, data,  getTracks, TrackLoop}) => {
+const Search = ({handleOnChange, getTracks }) => {
     
     return (
         <div>
-            <div> 
+            <form onSubmit={getTracks}> 
             <h1>Search Song</h1>
             <TextField id="outlined-basic" label="Search your favorite song!" variant="outlined" onChange={handleOnChange} />
-            <Button  variant="contained" color="success" size="large" onClick={()=>{getTracks(accessToken)}} > Search</Button>
-            </div>
+            <Button  variant="contained" color="success" size="large" type="submit" > Search</Button>
+            </form>
             
-            {data !== undefined && (
-                <TrackLoop tracks={data}/>
-            )}
-             
         </div>
     )
 };

@@ -1,32 +1,24 @@
 import styles from  './track.module.css';
+import { TracksProps } from '../../spotify';
 
-export type TrackData = {
-    album: string;
-    artists: Array<{
-        name: string,
-        id: string
-    }>;
-    name: string;
-    isSelected: boolean;
-    onSelectTrack: (uri: string) => void;
-    uri: string;
-}
 
-const Track= ({album, artists, name: songName, isSelected, uri, onSelectTrack}: TrackData) =>{ 
+const Track= ({mergedTracks, handleSelectTrack}: TracksProps) => { 
+    return <> {mergedTracks.map((track) => {
+        const {album, name, artists, isSelected, uri, id} = track;
+        return (
+            <div className={styles.card} key={id}>
+            <img src={album.images[0].url} alt=""/>
+            <div className={styles.cardText}>
+            <h3>{name}</h3>
+            <h2>{artists.map(artist => artist.name).join(',')}</h2>
+            <button onClick={()=>{handleSelectTrack(uri)}}> {isSelected? 'Deselect' : 'Selected'}</button>
+            </div>
+            </div>
+            
     
-    return (
-        
-        <div className={styles.card}>
-        <img src={album.images[0].url} alt=""/>
-        <div className={styles.cardText}>
-        <h3>{songName}</h3>
-        <h2>{artists.map(artist => artist.name).join(',')}</h2>
-        <button onClick={()=>{onSelectTrack(uri)}}> {isSelected? 'Deselect' : 'Selected'}</button>
-        </div>
-        </div>
-        
-
-)
+    )
+    })} </>
+ 
 }
 
 export default Track;
