@@ -9,15 +9,15 @@ const PlaylistForm = (
             <form className={styles.myform} onSubmit={handleAddPlaylistSubmit}>
                 <h1>Create Playlist</h1>
                 <div className="form-item">
-                    <label htmlFor="name">Title</label>
+                    <label htmlFor="title">Title</label>
                     <br/>
                     <input
-                        id="name"
+                        id="title"
                         type="text"
                         placeholder="Enter playlist name"
-                        name="name"
+                        name="title"
                         onChange={handleAddPlayListChange}
-                        value={addPlaylist.name}
+                        value={addPlaylist.title}
                         required minLength="10"/>
                 </div>
 

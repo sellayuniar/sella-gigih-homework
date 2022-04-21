@@ -16,8 +16,9 @@ const Profile = () => {
                 dispatch(setUserID(res.id));
                 dispatch(setUserDisplayName(res.display_name));
             }));
+            
     }, [accessToken, dispatch]);
-
+    console.log(userDisplayName);
     
    
     return (

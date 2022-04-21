@@ -6,7 +6,7 @@ export const addPlaylist = async (accessToken: string, userID: string, playlistD
         Authorization: `Bearer ${accessToken}`
     }
     const bodyParams = { 
-        name: playlistData.name,
+        name: playlistData.title,
         description: playlistData.description,
         collaborative: false,
         public: false

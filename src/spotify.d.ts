@@ -3,7 +3,7 @@ import { FormEvent, ChangeEvent } from "react";
 export type ResponseTracks = Tracks[];
 
 export type PlaylistParams = {
-    name: string,
+    title: string,
     description: string,
 };
 

@@ -23,7 +23,7 @@ const Home = () => {
     const [selectedTracks, setSelectedTracks] = useState<string[]>([]);
     const mergedTracks = useAppSelector((state: RootState) => state.tracks.mergedTracks);
     const [playlistData, setPlaylistData] = useState ({
-        name: '',
+        title: '',
         description: '',
     });
     
@@ -32,6 +32,17 @@ const Home = () => {
     }
 
     const dispatch = useAppDispatch();
+
+    const getTracks = () => {
+        accessToken !== undefined && fetchTracksData(query, accessToken)
+            .then(res => {
+                setTracksData(res);
+            });
+    }
+
+    const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setQuery(e.target.value);
+    }
   
     useEffect(()=>{
         const mergedTracksWithSelectedTracks = tracksData.map((track)=>({
@@ -51,16 +62,7 @@ const Home = () => {
         console.log(selectedTracks);
     };
 
-    const getTracks = () => {
-        accessToken !== undefined && fetchTracksData(query, accessToken)
-            .then(res => {
-                setTracksData(res);
-            });
-    }
-
-    const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setQuery(e.target.value);
-    }
+    
 
     //add playlist and item
 
