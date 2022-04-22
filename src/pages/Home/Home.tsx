@@ -54,7 +54,7 @@ const Home = () => {
     //get tracks
 
     const getTracks = () => {
-        accessToken !== undefined && fetchTracksData(query, accessToken)
+        fetchTracksData(query, accessToken)
             .then(res => {
                 setTracksData(res);
             });
@@ -104,7 +104,7 @@ const Home = () => {
                 handleOnChange={handleOnChange}
                 handleSearchOnSubmit={handleSearchOnSubmit}
                 />
-            <div className={styles.trackSection}> 
+            <div className={styles.TrackSection}> 
             <Track mergedTracks={mergedTracks} handleSelectTrack={handleSelectTrack} />
             </div>
 
