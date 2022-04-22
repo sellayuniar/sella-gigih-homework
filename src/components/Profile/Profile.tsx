@@ -18,9 +18,7 @@ const Profile = () => {
             }));
             
     }, [accessToken, dispatch]);
-    console.log(userDisplayName);
-    
-   
+
     return (
         <div className={styles.profile}>
             <h1>My Profile</h1>

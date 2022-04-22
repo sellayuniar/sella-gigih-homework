@@ -12,5 +12,6 @@ test("should show track component", () => {
             } } />
         </Provider>
         );
-        expect(screen.getByTestId("track")).toBeInTheDocument();
+        const trackDisplay = screen.getByTestId("track");
+        expect(trackDisplay).toBeInTheDocument();
 })

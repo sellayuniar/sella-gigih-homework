@@ -19,7 +19,6 @@
   .myform label {
     font-weight: bold;
     font-size: 16px;
-    color: #FFF;
   }
 
   .myform input {
@@ -52,8 +51,4 @@
   .myform textarea {
     font-family: Arial, Helvetica, sans-serif;
     padding: 5px;
-  }
-
-  .myform h1{
-    color: #FFF;
   }

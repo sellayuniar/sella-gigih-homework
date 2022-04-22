@@ -28,10 +28,6 @@
     transition: 0.5s;
   }
   
-  .card h2, h3{
-    color: #FFF;
-  }
-  
   .card img {
     width: 250px;
     overflow: hidden;

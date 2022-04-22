@@ -14,7 +14,6 @@ const Track= ({mergedTracks, handleSelectTrack}: TracksProps) => {
             <button onClick={()=>{handleSelectTrack(uri)}}> {isSelected? 'Deselect' : 'Selected'}</button>
             </div>
             </div>
-            
     
     )
     })} </>

@@ -1,8 +1,10 @@
 .container {
     padding-left: 100px;
-    background-color: #181818;
+    margin-bottom: 100px;
 }
+
 .trackSection {
+    margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2rem;

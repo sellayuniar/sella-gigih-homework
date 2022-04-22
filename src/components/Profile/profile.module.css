@@ -1,15 +1,4 @@
 .profile {
     margin-top: -21px;
     padding-top: 21px;
-    color: #FFF;
-}
-
-.profile button {
-  margin: 10px 25px;
-  padding: 10px 100px;
-  border: 2px solid #1DB954;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 14px;
-  background: #1DB954;
 }

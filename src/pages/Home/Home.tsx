@@ -33,17 +33,6 @@ const Home = () => {
 
     const dispatch = useAppDispatch();
 
-    const getTracks = () => {
-        accessToken !== undefined && fetchTracksData(query, accessToken)
-            .then(res => {
-                setTracksData(res);
-            });
-    }
-
-    const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setQuery(e.target.value);
-    }
-  
     useEffect(()=>{
         const mergedTracksWithSelectedTracks = tracksData.map((track)=>({
             ...track,
@@ -62,7 +51,21 @@ const Home = () => {
         console.log(selectedTracks);
     };
 
-    
+    const getTracks = () => {
+        accessToken !== undefined && fetchTracksData(query, accessToken)
+            .then(res => {
+                setTracksData(res);
+            });
+    }
+
+    const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setQuery(e.target.value);
+    }
+  
+    const handleSearchOnSubmit = (e: FormEvent) => {
+        e.preventDefault();
+        query !== undefined && getTracks();
+    }
 
     //add playlist and item
 
@@ -97,11 +100,11 @@ const Home = () => {
                 addPlaylist={addPlaylist}/>
             <Search
                 handleOnChange={handleOnChange}
-                getTracks={getTracks}
+                handleSearchOnSubmit={handleSearchOnSubmit}
                 />
-            <br/>
+            <div className={styles.trackSection}> 
             <Track mergedTracks={mergedTracks} handleSelectTrack={handleSelectTrack} />
-            
+            </div>
 
         </div>
     )
