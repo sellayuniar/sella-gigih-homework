@@ -1,4 +1,3 @@
-import './App.css';
 import PageRouter from './route/PageRouter';
 import {Provider} from "react-redux";
 import store  from "./store";
