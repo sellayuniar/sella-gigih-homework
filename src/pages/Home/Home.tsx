@@ -104,9 +104,7 @@ const Home = () => {
                 handleOnChange={handleOnChange}
                 handleSearchOnSubmit={handleSearchOnSubmit}
                 />
-          
             <Track mergedTracks={mergedTracks} handleSelectTrack={handleSelectTrack} />
-           
         </div>
     )
 
