@@ -3,7 +3,7 @@ import {createSlice} from "@reduxjs/toolkit";
 export const accessTokenSlice = createSlice({
     name: "saveAccessToken",
     initialState: {
-        value: ""
+        value: "" as string
     },
     reducers: {
         saveAccessToken: (state, action) => {

@@ -4,11 +4,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 1370px;
-  height: 650px;
-  background-color: #181818;
-
 }
+
 .btnLogin
     button {
       padding: 20px 100px;

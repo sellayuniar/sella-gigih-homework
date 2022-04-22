@@ -51,6 +51,8 @@ const Home = () => {
         console.log(selectedTracks);
     };
 
+    //get tracks
+
     const getTracks = () => {
         accessToken !== undefined && fetchTracksData(query, accessToken)
             .then(res => {
