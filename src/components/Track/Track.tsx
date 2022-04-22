@@ -3,7 +3,7 @@ import { TracksProps } from '../../spotify';
 
 
 const Track= ({mergedTracks, handleSelectTrack}: TracksProps) => { 
-    return <div data-testid="Track"> {mergedTracks.map((track) => {
+    return <div data-testid="Track" className={styles.TrackSection}> {mergedTracks.map((track) => {
         const {album, name, artists, isSelected, uri, id, duration_ms} = track;
         return (
             <div className={styles.card} key={id} >

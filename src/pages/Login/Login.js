@@ -2,7 +2,8 @@ import styles from "./login.module.css";
 
 const Login = () =>{
     var client_id = process.env.REACT_APP_SPOTIFY_KEY;
-    var redirect_uri = 'https://sella-gigih-spotify.vercel.app/';
+    // var redirect_uri = 'https://sella-gigih-spotify.vercel.app/';
+    var redirect_uri = 'http://localhost:3000/';
     var scope = 'playlist-modify-private playlist-modify-public';
 
     var url = 'https://accounts.spotify.com/authorize';

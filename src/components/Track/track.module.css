@@ -2,7 +2,7 @@
  .card {
     width: 500px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     border: 2px solid #DDDDDD;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -40,3 +40,10 @@
     margin: 10px;
   }
   
+  .TrackSection {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+   
+  }
