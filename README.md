@@ -3,7 +3,7 @@ My Name is Sella Yuniar (KM_G2FE1001)
 This is my spotify APP
 
 Nama: Create My Spotify Playlist
-Deskripsi: Aplikasi Create My Spotify playlist adalah web app yang dibuat dengan bahasa pemrograman javascript dengan library React JS dan Material UI. Aplikasi ini memiliki fitur untuk menambahkan spotify playlist. User juga dapat melihat display name akun spotify mereka. User juga dapat mencari music favorite mereka dan memilih music favorite untuk dimasukan ke playlist. Silahkan dicobaaa. Terima kasih.
+Deskripsi: Aplikasi Create My Spotify playlist adalah web app yang dibuat dengan bahasa pemrograman javascript dengan library React JS dan Material UI. Aplikasi ini memiliki fitur untuk menambahkan spotify playlist. User juga dapat melihat display name akun spotify mereka. User juga dapat mencari music favorite mereka dan memilih music favorite untuk dimasukan ke playlist. Silahkan dicobaaa Terima kasih.
 
 Fitur
 1. Login

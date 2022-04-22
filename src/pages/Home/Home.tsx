@@ -66,7 +66,7 @@ const Home = () => {
   
     const handleSearchOnSubmit = (e: FormEvent) => {
         e.preventDefault();
-        query !== undefined && getTracks();
+        getTracks();
     }
 
     //add playlist and item
@@ -78,7 +78,7 @@ const Home = () => {
 
     const handleAddPlaylistSubmit = (e: FormEvent) => {
         e.preventDefault();
-        accessToken !== undefined && addPlaylist(accessToken, userID, playlistData)
+        addPlaylist(accessToken, userID, playlistData)
             .then(res => {
                 console.log("Playlist created: ", res);
                 selectedTracks.length > 0 && (handleAddPlaylistItem(res.id));
@@ -86,7 +86,7 @@ const Home = () => {
     }
     
     const handleAddPlaylistItem = (playlist_id: string) => {
-        accessToken !== undefined && addItemToPlaylist(accessToken, playlist_id, itemParams)
+       addItemToPlaylist(accessToken, playlist_id, itemParams)
             .then(res => {
                 console.log("Added items to playlist: ", res);
             });
