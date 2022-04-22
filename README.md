@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+Hello Everyone!
+My Name is Sella Yuniar (KM_G2FE1001)
+This is my spotify APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Nama: Create My Spotify Playlist
+Deskripsi: Aplikasi Create My Spotify playlist adalah web app yang dibuat dengan bahasa pemrograman javascript dengan library React JS dan Material UI. Aplikasi ini memiliki fitur untuk menambahkan spotify playlist. User juga dapat melihat display name akun spotify mereka. User juga dapat mencari music favorite mereka dan memilih music favorite untuk dimasukan ke playlist. Silahkan dicobaaa. Terima kasih.
 
-## Available Scripts
+Fitur
+1. Login
+2. Get Your Spotify Account
+3. Search Music Track
+4. Show track list from search mucic track (song title, artists, duration, image, button select or deselect)
+5. Select or Deselect Music Track
+6. Make a spotify Playlist with selected music track
 
-In the project directory, you can run:
+Cara Install dan menjalankan Aplikasi di Lokal
+1. Download code from this repository
+2. Make sure that you have a code editor and Node Js
+3. Open the code in your code editor
+4. Open your terminal can be from code editor or CMD
+5. Open the code folder from the terminal
+6. Type npm insall in terminal (the steps is needed to install web application dependency)
+7. Make an account in spotify developers after that make an app
+8. Make your own .env.local based on your client id in spotify developers
+9. Setting your app in spotify developers add redirect_uri to http:/localhost:3000/
+10. Make sure the redirect uri in spotify developers match to redirect uri in file login.js in the code
+11. Open your terminal and type npm run
+12. Click Login 
+13. The Application will bring you in create-playlist page
+14. On the create-playlist page you will see your spotify display name
+15. Then you can search your favorite track 
+16. Click select to selected your favorite track and you can click deselect if you change your mind
+17. Fill in the create playlist form then click submit
+18. Now you can open your spotify app an see the playlist that you have made
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Cara menjalankan di Vercel APP
+1. Open the url sella-gigih-spotify.vercel.app
+2. Click Login 
+3. The Application will bring you in create-playlist page
+4. On the create-playlist page you will see your spotify display name
+5. Then you can search your favorite track 
+6. Click select to selected your favorite track and you can click deselect if you change your mind
+7. Fill in the create playlist form then click submit
+8. Now you can open your spotify app an see the playlist that you have made
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Sekian dari saya Sella, mohon maaf jika terdapat beberapa bug. saya sangat terbuka untuk kritik, saran dan pertanyaan hubungi saya di email synrr212@gmail.com, terima kasihh!

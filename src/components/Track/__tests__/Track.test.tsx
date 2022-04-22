@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import Track from '../Track';
 import store from "../../../store";
-import data from "../../../libs/data/tracksData"
+// import data from "../../../libs/data/tracksData"
 
 
 test("should show track component", () => {
@@ -13,6 +13,6 @@ test("should show track component", () => {
              } }  />
         </Provider>
         );
-        const trackDisplay = screen.getByTestId("track");
+        const trackDisplay = screen.getByTestId("Track");
         expect(trackDisplay).toBeInTheDocument();
 })

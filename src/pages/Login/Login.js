@@ -14,7 +14,7 @@ const Login = () =>{
     return (
         <div className={styles.btnLogin}>
             <h1>Login To Your Spotify Account</h1>
-            <a href={url}><button>Login</button></a>
+            <a href={url}><button data-testid="login">Login</button></a>
         </div>
     )
    
